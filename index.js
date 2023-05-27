@@ -33,7 +33,8 @@ Agora aplique as perguntas para o seguinte relato:`;
 
 const secondMessage = `De 1 a 10, qual é meu nivel de perigo de recaida? 
 
-Além disso, me de um feedback sobre a situação e o que eu posso fazer para melhorar. Me de o feedback se direcionando ao usuário em segunda pessoa. Respondendo no seguinte formato: primeiro informe ao usuário o seu nível de recaída, e após, de o feedback.`;
+Além disso, me de um feedback sobre a situação e o que eu posso fazer para melhorar. Me de o feedback se direcionando ao usuário em segunda pessoa. Respondendo no seguinte formato: primeiro informe ao usuário o seu nível de recaída, e após, de o feedback.
+Se a nota for maior que 7, insira no final da mensagem a seguinte frase: Devido à nota do seu relato de hoje, o seu sponsor foi notificado, mantenha-se forte, você consegue!`;
 
 const app = express();
 app.use(bodyParser.json());
