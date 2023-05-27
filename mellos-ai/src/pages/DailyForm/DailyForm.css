@@ -1,0 +1,43 @@
+.daily-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1920px;
+}
+
+.title-daily-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-daily-form h1{
+    margin: 10px 10px 0px 0px;
+}
+
+.title-daily-form p{
+    margin-bottom: 30px;
+}
+
+.text-area-daily-form{
+    max-width: 1200px;
+}
+
+.button-submit-daily-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.feedback-daily-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    text-align: justify;
+}
+
+.feedback-daily-form h1{
+    margin: 30px 0px 10px 0px;
+}
