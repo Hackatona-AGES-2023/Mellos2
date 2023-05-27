@@ -37,6 +37,10 @@
     text-align: justify;
 }
 
+.feedback-daily-form span{
+    margin-top: 25px;
+}
+
 .feedback-daily-form h1{
     margin: 25px 0px 10px 0px;
 }

@@ -55,27 +55,27 @@ function DailyForm() {
       <Header/>
       <div className="daily-form">
         <form className="form-daily-form" onSubmit={handleSubmit}>
-            <div className="title-daily-form">
-                <h1>Formulário Diário</h1>
-                <p>Como foi seu dia? Vamos conversar para analisar seu progresso.</p>
-            </div>
-            <div className="text-area-daily-form">
-                <StyledTextarea
-                    minRows={4}
-                    value={prompt}
-                    onChange={(e) => setPrompt(e.target.value)}
-                    disabled={isDisabled}
-                ></StyledTextarea>
-            </div>
-            <div className="button-submit-daily-form">
-                <Button variant="contained" color="primary" onClick={handleSubmit} disabled={isDisabled}>
-                    Enviar
-                </Button>
-            </div>
+          <div className="title-daily-form">
+              <h1>Formulário Diário</h1>
+              <p>Como foi seu dia? Vamos conversar para analisar seu progresso.</p>
+          </div>
+          <div className="text-area-daily-form">
+              <StyledTextarea
+                  minRows={4}
+                  value={prompt}
+                  onChange={(e) => setPrompt(e.target.value)}
+                  disabled={isDisabled}
+              ></StyledTextarea>
+          </div>
+          <div className="button-submit-daily-form">
+              <Button variant="contained" color="primary" onClick={handleSubmit} disabled={isDisabled}>
+                  Enviar
+              </Button>
+          </div>
         </form>
         {isLoading ? (
         <div className="feedback-daily-form">
-            <p>Aguarde enquanto estamos analisando a sua resposta...</p>
+            <span>Aguarde enquanto estamos analisando a sua resposta...</span>
         </div>
         ) : clicou && (
           <div className="feedback-daily-form">
