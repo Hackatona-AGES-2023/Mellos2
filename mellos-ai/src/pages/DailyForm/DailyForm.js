@@ -4,10 +4,11 @@ import { TextareaAutosize } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useState } from "react";
 import { styled } from '@mui/system';
+import Header from "../../header/Header";
 
 const StyledTextarea = styled(TextareaAutosize)(
     ({ theme }) => `
-    width: 700px;
+    width: 800px;
     font-family: IBM Plex Sans, Montserrat;
     text-align: justify;
     font-size: 16px;
@@ -42,6 +43,9 @@ function DailyForm() {
   return (
     <div className="daily-form">
         <form className="form-daily-form" onSubmit={handleSubmit}>
+            <div className="header-daily-form">
+              <Header/>
+            </div>
             <div className="title-daily-form">
                 <h1>Formulário Diário</h1>
                 <p>Fale um pouco do seu dia para mim por favor</p>
