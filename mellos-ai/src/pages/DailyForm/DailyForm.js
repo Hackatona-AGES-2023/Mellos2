@@ -26,17 +26,28 @@ const StyledTextarea = styled(TextareaAutosize)(
 function DailyForm() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("Por favor, faça uma pergunta");
+  const [clicou, setClicou] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setIsDisabled(true);
 
     axios
       .post("http://localhost:8085/chat", { prompt })
       .then((res) => {
         setResponse(res.data);
+        setClicou(true);
+        setIsLoading(false);
+        setIsDisabled(false);
       })
       .catch((err) => {
         console.log(err);
+        setClicou(false);
+        setIsLoading(false);
+        setIsDisabled(false);
       });
   };
   return (
@@ -53,18 +64,25 @@ function DailyForm() {
                     minRows={4}
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
+                    disabled={isDisabled}
                 ></StyledTextarea>
             </div>
             <div className="button-submit-daily-form">
-                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                <Button variant="contained" color="primary" onClick={handleSubmit} disabled={isDisabled}>
                     Enviar
                 </Button>
             </div>
         </form>
+        {isLoading ? (
         <div className="feedback-daily-form">
-            <h1>Feedback</h1>
-            <p>{response}</p>
+            <p>Aguarde enquanto estamos analisando a sua resposta...</p>
         </div>
+        ) : clicou && (
+          <div className="feedback-daily-form">
+              <h1>Feedback</h1>
+              <p>{response}</p>
+          </div>
+        )}
       </div>
     </div>
     
