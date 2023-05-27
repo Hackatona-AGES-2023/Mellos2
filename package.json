@@ -1,0 +1,25 @@
+{
+  "name": "mellos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hackatona-AGES-2023/Mellos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hackatona-AGES-2023/Mellos/issues"
+  },
+  "homepage": "https://github.com/Hackatona-AGES-2023/Mellos#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "openai": "^3.2.1"
+  }
+}
