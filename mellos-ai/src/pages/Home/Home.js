@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: '#2E86AB',
     fontWeight: 'bold',
-    width: '105%',
+    width: '107%',
   },
   loginButton: {
     marginRight: theme.spacing(2),
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   w90:{
-    width: '100%',
+    width: '90%',
   }
 }));
 
