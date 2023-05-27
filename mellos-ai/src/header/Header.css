@@ -1,0 +1,29 @@
+.header {
+  grid-area: header;
+  background-color: #2E86AB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 -6px 10px 5px rgba(0,0,0,0.5);
+}
+
+.header h2 {
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons button {
+  margin-right: 10px;
+}
