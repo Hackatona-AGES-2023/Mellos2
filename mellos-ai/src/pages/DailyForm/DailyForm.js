@@ -8,10 +8,9 @@ import Header from "../../header/Header";
 
 const StyledTextarea = styled(TextareaAutosize)(
     ({ theme }) => `
-    width: 800px;
-    font-family: IBM Plex Sans, Montserrat;
+    width: 700px;
     text-align: justify;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
     padding: 12px;
@@ -41,14 +40,13 @@ function DailyForm() {
       });
   };
   return (
-    <div className="daily-form">
+    <div>
+      <Header/>
+      <div className="daily-form">
         <form className="form-daily-form" onSubmit={handleSubmit}>
-            <div className="header-daily-form">
-              <Header/>
-            </div>
             <div className="title-daily-form">
                 <h1>Formulário Diário</h1>
-                <p>Fale um pouco do seu dia para mim por favor</p>
+                <p>Como foi seu dia? Vamos conversar para analisar seu progresso.</p>
             </div>
             <div className="text-area-daily-form">
                 <StyledTextarea
@@ -67,7 +65,9 @@ function DailyForm() {
             <h1>Feedback</h1>
             <p>{response}</p>
         </div>
+      </div>
     </div>
+    
   );
 }
 
