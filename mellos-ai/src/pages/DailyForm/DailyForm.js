@@ -25,7 +25,7 @@ const StyledTextarea = styled(TextareaAutosize)(
 
 function DailyForm() {
   const [prompt, setPrompt] = useState("");
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState("Por favor, faça uma pergunta");
 
   const handleSubmit = (e) => {
     e.preventDefault();
