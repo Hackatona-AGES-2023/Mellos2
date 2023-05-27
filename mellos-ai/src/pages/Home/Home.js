@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: '#2E86AB',
     fontWeight: 'bold',
-    width: '107%',
+    width: '105%',
   },
   loginButton: {
     marginRight: theme.spacing(2),
@@ -109,7 +109,7 @@ const Home = () => {
           <img src={watermarkImage} className={classes.watermark} alt="Watermark" />
         </div>
         <Typography variant="h4" component="h1" align="center" className={classes.title}>
-          One Day at a Time
+          Um Dia de Cada Vez
         </Typography>
 
         <Grid container spacing={4} direction="column" justifyContent="center" alignItems="center">
@@ -120,7 +120,7 @@ const Home = () => {
                   O Programa de 12 Passos
                 </Typography>
               </div>
-              <Typography variant="body1">
+              <Typography variant="body1" align="justify">
                 O Programa de 12 Passos é um modelo de recuperação utilizado por várias comunidades e grupos que lidam com vícios e dependências. Ele oferece um caminho estruturado para ajudar na superação desses problemas, promovendo uma abordagem gradual e contínua de recuperação. No 12 Step AI você poderá ter um acompanhamento personalizado e direto através de nossa inteligência artificial, que irá atuar para reconhecer comportamentos que podem levá-lo a uma recaída e parear você com um Sponsor que seja compatível com você e seus objetivos. O seu caminho para a sobriedade e uma vida nova de liberdade começa agora!
               </Typography>
             </Paper>
@@ -133,7 +133,7 @@ const Home = () => {
                   Os 12 Passos
                 </Typography>
               </div>
-              <Typography variant="body1">
+              <Typography variant="body1" align="justify">
                 <span className={classes.stepNumber}>1.</span> Admitimos que éramos impotentes perante nosso vício e que nossas vidas tinham se tornado incontroláveis.
                 <br />
                 <span className={classes.stepNumber}>2.</span> Viemos a acreditar que um Poder superior a nós mesmos poderia devolver-nos à sanidade.

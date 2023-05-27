@@ -13,7 +13,7 @@ function Header() {
    return (
       <div className="header">
          <div className="buttons">
-            <Button onClick={handleHomeClick} variant="text" color="inherit">Home</Button>
+            <Button onClick={handleHomeClick} variant="text" color="inherit">Início</Button>
          </div>
          <h2>Olá, João</h2>
          <Avatar

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../../header/Header";
+import axios from "axios";
 import { useNavigate } from "react-router";
 import {
   Typography,
@@ -15,6 +16,8 @@ import {
 } from "@mui/material";
 
 function InitialForm() {
+  const [response, setResponse] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
     idade: "",
@@ -36,8 +39,23 @@ function InitialForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setModalOpen(true);
+    setIsDisabled(true);
+  
+    const prompt = `Baseado nessas seguintes características: Vícios: ${formData.vicio}, Gatilhos: ${formData.gatilhos}, Hobbies: ${formData.hobbies}, eu gostaria que falasse a seguinte mensagem: Achamos o Sponsor perfeito para você! Após essa mensagem diga que esse sponsor já passou pelo mesmo vício que o portador do vício, mas sem mencionar o vício e os gatilhos e tem os mesmo hobbies também`;
+  
+    axios
+      .post("http://localhost:8085/match", { prompt })
+      .then((res) => {
+        setResponse(res.data);
+        setModalOpen(true);
+        setIsDisabled(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsDisabled(false);
+      });
   };
+  
 
   const navigate = useNavigate();
 
@@ -48,13 +66,13 @@ function InitialForm() {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          marginTop: "20px"
+          marginTop: "20px",
         }}
         className="mainWrapper"
       >
@@ -84,6 +102,7 @@ function InitialForm() {
             fullWidth
             variant="outlined"
             size="small"
+            disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
           />
 
@@ -97,6 +116,7 @@ function InitialForm() {
             fullWidth
             variant="outlined"
             size="small"
+            disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
           />
 
@@ -107,6 +127,7 @@ function InitialForm() {
               value={formData.estadoCivil}
               onChange={handleChange}
               label="Estado Civil"
+              disabled={isDisabled}
             >
               <MenuItem value="solteiro">Solteiro</MenuItem>
               <MenuItem value="casado">Casado</MenuItem>
@@ -124,6 +145,7 @@ function InitialForm() {
             fullWidth
             variant="outlined"
             size="small"
+            disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
           />
 
@@ -136,6 +158,7 @@ function InitialForm() {
             fullWidth
             variant="outlined"
             size="small"
+            disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
           />
 
@@ -148,6 +171,7 @@ function InitialForm() {
             fullWidth
             variant="outlined"
             size="small"
+            disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
           />
 
@@ -160,11 +184,12 @@ function InitialForm() {
             fullWidth
             variant="outlined"
             size="small"
+            disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
           />
 
-          <Button type="submit" variant="contained" color="primary">
-            Submit
+          <Button type="submit" variant="contained" color="primary" disabled={isDisabled}>
+            Enviar
           </Button>
 
           <Modal
@@ -220,13 +245,19 @@ function InitialForm() {
                   style={{ width: 60, height: 60, marginLeft: "3.5rem" }}
                 />
               </div>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleModalClose}
-              >
-                Close
-              </Button>
+              <div style={{ textAlign: 'justify' }}>
+                <p>{response}</p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleModalClose}
+                  textAlign="center"
+                >
+                  Close
+                </Button>
+              </div>
             </Box>
           </Modal>
         </form>
