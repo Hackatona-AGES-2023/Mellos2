@@ -1,13 +1,15 @@
 import React from 'react';
 import { Avatar, Button } from '@mui/material';
 import './Header.css';
-
-const handleHomeClick = () => {
-   // Lógica para ir para a página inicial
-   console.log('Botão Home clicado!');
-};
+import { useNavigate } from "react-router";
 
 function Header() {
+   const navigate = useNavigate();
+
+   const handleHomeClick = () => {
+      navigate("/");
+   };
+
    return (
       <div className="header">
          <div className="buttons">
