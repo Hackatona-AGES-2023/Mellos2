@@ -1,11 +1,14 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const { Configuration, OpenAIApi } = require("openai");
 
+const key = process.env.REACT_APP_OPENAI_API_KEY;
 const config = new Configuration({
-  apiKey: "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",
+  apiKey: key,
 });
 
 const openai = new OpenAIApi(config);
@@ -30,7 +33,8 @@ Agora aplique as perguntas para o seguinte relato:`;
 
 const secondMessage = `De 1 a 10, qual é meu nivel de perigo de recaida? 
 
-Além disso, me de um feedback sobre a situação e o que eu posso fazer para melhorar. Me de o feedback se direcionando ao usuário em segunda pessoa. Respondendo no seguinte formato: primeiro informe ao usuário o seu nível de recaída, e após, de o feedback.`;
+Além disso, me de um feedback sobre a situação e o que eu posso fazer para melhorar. Me de o feedback se direcionando ao usuário em segunda pessoa. Respondendo no seguinte formato: primeiro informe ao usuário o seu nível de recaída, e após, de o feedback.
+Se a nota for maior que 7, insira no final da mensagem a seguinte frase: Devido à nota do seu relato de hoje, o seu sponsor foi notificado, mantenha-se forte, você consegue!`;
 
 const app = express();
 app.use(bodyParser.json());
@@ -44,6 +48,19 @@ app.post("/chat", async (req, res) => {
     max_tokens: 512,
     temperature: 0,
     prompt: firstMessage + prompt + secondMessage,
+  });
+
+  res.send(completion.data.choices[0].text);
+});
+
+app.post("/match", async (req, res) => {
+  const { prompt } = req.body;
+
+  const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    max_tokens: 512,
+    temperature: 0,
+    prompt: prompt,
   });
 
   res.send(completion.data.choices[0].text);
